@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Bus, Clock, Route, User, Phone, AlertCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import DashboardLayout from "@/components/DashboardLayout";
-import MapComponent from "@/components/MapComponent";
 
 interface StudentData {
   name: string;
@@ -304,22 +303,13 @@ const StudentDashboard = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <MapComponent 
-                className="w-full h-96 rounded-lg"
-                center={{ lat: 30.7749, lng: 76.7194 }}
-                zoom={13}
-                markers={[
-                  {
-                    position: { lat: 30.7749, lng: 76.7194 },
-                    title: "PEC Main Gate",
-                    info: "<div class='p-2'><h3 class='font-bold'>PEC Main Gate</h3><p>Destination Point</p></div>"
-                  }
-                ]}
-              />
-              <div className="mt-4 text-center">
-                <p className="text-sm text-muted-foreground">
-                  Real-time bus location tracking for Bus #{studentData?.busNo}
-                </p>
+              <div className="bg-muted/30 border-2 border-dashed border-muted rounded-lg p-8 text-center">
+                <AlertCircle className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                <p className="text-muted-foreground mb-4">Live tracking will be available soon</p>
+                <Button variant="outline" disabled>
+                  <MapPin className="h-4 w-4 mr-2" />
+                  Track Bus Location
+                </Button>
               </div>
             </CardContent>
           </Card>

@@ -15,12 +15,10 @@ import {
   AlertTriangle, 
   CheckCircle, 
   AlertCircle,
-  Filter,
-  Plus
+  Filter
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import DashboardLayout from "@/components/DashboardLayout";
-import AddItemDialog from "@/components/AddItemDialog";
 
 interface Student {
   serialNo: string;
@@ -341,13 +339,10 @@ const AdminDashboard = () => {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle>Student Management</CardTitle>
-                  <div className="flex gap-2">
-                    <AddItemDialog type="student" onAdd={(data) => setStudents([...students, data])} />
-                    <Button onClick={() => exportToCSV(filteredStudents, "students_data")}>
-                      <Download className="h-4 w-4 mr-2" />
-                      Export CSV
-                    </Button>
-                  </div>
+                  <Button onClick={() => exportToCSV(filteredStudents, "students_data")}>
+                    <Download className="h-4 w-4 mr-2" />
+                    Export CSV
+                  </Button>
                 </div>
               </CardHeader>
               <CardContent>
@@ -427,13 +422,10 @@ const AdminDashboard = () => {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle>Driver Management</CardTitle>
-                  <div className="flex gap-2">
-                    <AddItemDialog type="driver" onAdd={(data) => setDrivers([...drivers, data])} />
-                    <Button onClick={() => exportToCSV(drivers, "drivers_data")}>
-                      <Download className="h-4 w-4 mr-2" />
-                      Export CSV
-                    </Button>
-                  </div>
+                  <Button onClick={() => exportToCSV(drivers, "drivers_data")}>
+                    <Download className="h-4 w-4 mr-2" />
+                    Export CSV
+                  </Button>
                 </div>
               </CardHeader>
               <CardContent>
@@ -475,13 +467,10 @@ const AdminDashboard = () => {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle>Bus Management</CardTitle>
-                  <div className="flex gap-2">
-                    <AddItemDialog type="bus" onAdd={(data) => setBuses([...buses, data])} />
-                    <Button onClick={() => exportToCSV(buses, "buses_data")}>
-                      <Download className="h-4 w-4 mr-2" />
-                      Export CSV
-                    </Button>
-                  </div>
+                  <Button onClick={() => exportToCSV(buses, "buses_data")}>
+                    <Download className="h-4 w-4 mr-2" />
+                    Export CSV
+                  </Button>
                 </div>
               </CardHeader>
               <CardContent>
