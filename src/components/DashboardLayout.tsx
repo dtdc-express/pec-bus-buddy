@@ -18,6 +18,8 @@ const DashboardLayout = ({ children, role }: DashboardLayoutProps) => {
   const handleLogout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("passwordChanged");
+    localStorage.removeItem("userPassword");
     navigate("/");
   };
 

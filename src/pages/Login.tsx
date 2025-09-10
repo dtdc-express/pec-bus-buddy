@@ -40,23 +40,31 @@ const Login = () => {
     localStorage.setItem("user", JSON.stringify({ role, identifier }));
     localStorage.setItem("isAuthenticated", "true");
 
-    // Navigate based on role
-    switch (role) {
-      case "student":
-        navigate("/student-dashboard");
-        break;
-      case "driver":
-        navigate("/driver-dashboard");
-        break;
-      case "admin":
-        navigate("/admin-dashboard");
-        break;
-      default:
-        toast({
-          title: "Error",
-          description: "Invalid role selected",
-          variant: "destructive",
-        });
+    // Check if password has been changed before
+    const passwordChanged = localStorage.getItem("passwordChanged");
+    
+    if (!passwordChanged) {
+      // First time login with default password - redirect to change password
+      navigate("/change-password");
+    } else {
+      // Navigate based on role
+      switch (role) {
+        case "student":
+          navigate("/student-dashboard");
+          break;
+        case "driver":
+          navigate("/driver-dashboard");
+          break;
+        case "admin":
+          navigate("/admin-dashboard");
+          break;
+        default:
+          toast({
+            title: "Error",
+            description: "Invalid role selected",
+            variant: "destructive",
+          });
+      }
     }
   };
 
